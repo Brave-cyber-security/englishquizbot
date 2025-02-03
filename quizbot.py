@@ -84,6 +84,12 @@ def start(message):
         logger.info(f"Yangi foydalanuvchi: {user_id}")
     except Exception as e:
         logger.error(f"Start komandasi xatosi: {e}")
+@bot.message_handler(commands=['stop'])
+def stop_command(message):
+    bot.reply_to(message, "Bot stopped.")
+@bot.message_handler(commands=['help'])
+def help_command(message):
+    bot.reply_to(message, "This is the help command!")
 
 # So'z kiritish
 @bot.message_handler(func=lambda message: message.text == "📝 So'zlarni kiritish")
